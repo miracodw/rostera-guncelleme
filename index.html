@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rostera – Windows için ücretsiz İK programı</title>
+<meta name="description" content="Personel, yıllık izin, mazeret izni ve devamsızlık, kıdem–ihbar tazminatı, bordro hazırlık, avans, icra, İŞKUR çizelgesi, sözleşme ve tutanaklar tek programda. Ücretsiz, verileriniz yalnızca bilgisayarınızda.">
+<meta property="og:title" content="Rostera – Windows için ücretsiz İK programı">
+<meta property="og:description" content="İK işleriniz tek programda. Ücretsiz, üyeliksiz; verileriniz yalnızca bilgisayarınızda.">
+<meta property="og:image" content="https://miracodw.github.io/rostera-guncelleme/gorseller/ana-sayfa.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232C5FA8'/%3E%3Ctext x='32' y='44' font-family='Segoe UI,Arial' font-weight='700' font-size='36' fill='white' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<style>
+  :root { --lacivert:#13223D; --lacivert-2:#0D182C; --mavi:#2C5FA8; --acik:#7FB2FF; --yazi:#1B2533; --ikinci:#4A5668; --zemin:#F3F5F8; --kart:#fff; --cizgi:#DDE3EA; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font: 17px/1.6 "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif; color: var(--yazi); background: var(--zemin); }
+  a { color: var(--mavi); }
+  .kap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+  /* Üst çubuk */
+  .ust { position: sticky; top: 0; z-index: 10; background: rgba(19,34,61,.96); backdrop-filter: blur(6px); }
+  .ust .kap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 700; font-size: 20px; }
+  .logo b { width: 36px; height: 36px; border-radius: 9px; background: var(--mavi); display: grid; place-items: center; }
+  .ust nav { display: flex; gap: 22px; align-items: center; }
+  .ust nav a { color: #C9D5E6; text-decoration: none; font-size: 15px; }
+  .ust nav a:hover { color: #fff; }
+  .ust nav a.dugme, .ust nav a.dugme:hover { color: var(--lacivert); padding: 9px 18px; font-size: 15px; }
+  .dugme { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--lacivert); font-weight: 700; text-decoration: none; padding: 12px 22px; border-radius: 999px; font-size: 16px; white-space: nowrap; }
+  .dugme.mavi { background: var(--mavi); color: #fff; }
+  .dugme svg { width: 20px; height: 20px; }
+  @media (max-width: 760px) { .ust nav a:not(.dugme) { display: none; } }
+  /* Giriş */
+  .giris { background: radial-gradient(1100px 600px at 85% -10%, #2b5aa0 0%, rgba(43,90,160,0) 60%), linear-gradient(170deg, var(--lacivert) 0%, var(--lacivert-2) 100%); color: #fff; padding: 72px 0 0; overflow: hidden; }
+  .etiket { display: inline-block; font-size: 14px; font-weight: 600; color: #9CC3FF; background: rgba(124,170,255,.14); border: 1px solid rgba(124,170,255,.3); padding: 6px 14px; border-radius: 999px; }
+  .giris h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.06; letter-spacing: -1.5px; margin: 18px 0 0; }
+  .giris h1 em { font-style: normal; color: var(--acik); }
+  .giris p.alt { font-size: clamp(17px, 2vw, 21px); color: #C4D2E6; max-width: 760px; margin: 18px 0 28px; }
+  .giris .eylem { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .giris .not { color: #9FB3D1; font-size: 14px; }
+  .pencere { margin-top: 48px; border-radius: 14px 14px 0 0; overflow: hidden; box-shadow: 0 -10px 60px rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.12); border-bottom: 0; }
+  .pencere .cubuk { height: 30px; background: #E6EAF1; display: flex; align-items: center; gap: 7px; padding: 0 14px; }
+  .pencere .cubuk i { width: 11px; height: 11px; border-radius: 50%; background: #C3CAD6; }
+  .pencere img { display: block; width: 100%; height: auto; }
+  /* Bölümler */
+  section.bolum { padding: 80px 0; }
+  .bolum h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.8px; margin: 0 0 10px; line-height: 1.15; }
+  .bolum .giris-metni { color: var(--ikinci); font-size: 18px; max-width: 720px; margin: 0 0 40px; }
+  .kartlar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 900px) { .kartlar { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .kartlar { grid-template-columns: 1fr; } }
+  .kart { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 14px; padding: 22px; }
+  .kart h3 { margin: 0 0 6px; font-size: 18px; }
+  .kart p { margin: 0; color: var(--ikinci); font-size: 15.5px; }
+  .kart .ik { width: 42px; height: 42px; border-radius: 11px; background: #EAF1FB; display: grid; place-items: center; margin-bottom: 14px; }
+  .kart .ik svg { width: 22px; height: 22px; stroke: var(--mavi); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  /* Ekran turu */
+  .tur { display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: center; padding: 36px 0; border-top: 1px solid var(--cizgi); }
+  .tur:first-of-type { border-top: 0; }
+  .tur.ters { grid-template-columns: 1.6fr 1fr; }
+  .tur.ters .metin { order: 2; }
+  @media (max-width: 860px) { .tur, .tur.ters { grid-template-columns: 1fr; gap: 20px; } .tur.ters .metin { order: 0; } }
+  .tur h3 { font-size: 26px; margin: 0 0 10px; letter-spacing: -.4px; line-height: 1.2; }
+  .tur ul { margin: 0; padding-left: 20px; color: var(--ikinci); }
+  .tur li { margin: 6px 0; }
+  .tur img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--cizgi); box-shadow: 0 18px 40px rgba(19,34,61,.14); }
+  /* Gizlilik */
+  .gizlilik { background: linear-gradient(170deg, var(--lacivert) 0%, var(--lacivert-2) 100%); color: #fff; }
+  .gizlilik .giris-metni { color: #C4D2E6; }
+  .gizlilik .kart { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
+  .gizlilik .kart p { color: #B8C7DC; }
+  .gizlilik .kart .ik { background: rgba(127,178,255,.16); }
+  .gizlilik .kart .ik svg { stroke: #9CC3FF; }
+  /* SSS */
+  details { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px; }
+  summary { font-weight: 600; cursor: pointer; }
+  details p { color: var(--ikinci); margin: 10px 0 0; }
+  /* Son çağrı */
+  .cagri { text-align: center; }
+  .cagri .dugme { font-size: 18px; padding: 15px 28px; }
+  footer { background: var(--lacivert-2); color: #9FB3D1; font-size: 14px; padding: 28px 0; }
+  footer .kap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer a { color: #C9D5E6; }
+  .uyari { font-size: 13.5px; color: var(--ikinci); max-width: 780px; margin: 24px auto 0; }
+</style>
+</head>
+<body>
+<header class="ust"><div class="kap">
+  <a class="logo" href="#"><b>R</b>Rostera</a>
+  <nav><a href="#ozellikler">Özellikler</a><a href="#ekranlar">Ekranlar</a><a href="#gizlilik">Gizlilik</a><a href="#sss">Sık sorulanlar</a>
+    <a class="dugme" href="https://apps.microsoft.com/detail/9P63DGXNGJVF" rel="noopener">Ücretsiz indir</a></nav>
+</div></header>
+
+<section class="giris"><div class="kap">
+  <span class="etiket">Yeni sürüm 1.0.2 · İzin ve Devamsızlık bölümü</span>
+  <h1>İK işleriniz<br><em>tek programda.</em></h1>
+  <p class="alt">Personel, yıllık izin, mazeret izni ve devamsızlık, kıdem–ihbar tazminatı, bordro hazırlık, avans, icra, İŞKUR çizelgesi, sözleşme ve tutanaklar. Windows için ücretsiz; verileriniz yalnızca bilgisayarınızda.</p>
+  <div class="eylem">
+    <a class="dugme" href="https://apps.microsoft.com/detail/9P63DGXNGJVF" rel="noopener">Microsoft Store'dan ücretsiz indir</a>
+    <span class="not">Windows 10 ve 11 · Üyelik yok · Abonelik yok</span>
+  </div>
+  <div class="pencere"><div class="cubuk"><i></i><i></i><i></i></div><img src="gorseller/personel.jpg" alt="Rostera personel listesi: sicil, departman, işe giriş, kıdem ve kalan izin" width="1600" height="900"></div>
+</div></section>
+
+<section class="bolum" id="ozellikler"><div class="kap">
+  <h2>Günlük İK işlerinin tamamı</h2>
+  <p class="giris-metni">Dağınık Excel tabloları, elle yapılan hesaplar ve her seferinde yeniden yazılan belgeler yerine kurallara göre çalışan, hazır çıktı veren tek bir program.</p>
+  <div class="kartlar">
+    <div class="kart"><div class="ik"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 010 7M18 14.8c1.9.7 3.1 2.4 3.5 5.2"/></svg></div><h3>Personel kartı</h3><p>Kimlik, ücret ve yan haklar, IBAN, meslek kodu, engellilik, KKD bedenleri. TC ve IBAN doğrulaması, Excel'den toplu aktarım.</p></div>
+    <div class="kart"><div class="ik"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><h3>Yıllık izin</h3><p>Kıdem ve yaş kuralına göre hak ediş, takvimden izin girişi, yol izni, izin formu; peşin izin ücreti izin aylarına göre mahsup edilir.</p></div>
+    <div class="kart"><div class="ik"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 14l6 4M15 14l-6 4"/></svg></div><h3>İzin ve devamsızlık</h3><p>Evlenme, babalık, ölüm gibi mazeret izinleri, rapor, ücretsiz izin ve devamsızlık; yasal süre uyarısı, izin ve rapor formları.</p></div>
+    <div class="kart"><div class="ik"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3 10l9-6 9 6"/></svg></div><h3>Tazminat ve çıkış</h3><p>Kıdem, ihbar ve kullanılmayan izin ücreti; tavan, vergi ve damga kesintileri otomatik. İbraname, ödeme planı ve çalışma belgesi.</p></div>
+    <div class="kart"><div class="ik"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>Bordro hazırlık</h3><p>O ay bordroya işlenecek giriş–çıkış, izin, eksik gün, avans, icra ve BES kesintileri tek listede; Excel ve PDF çıktı.</p></div>
+    <div class="kart"><div class="ik"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>İŞKUR çizelgesi</h3><p>Aylık işgücü çizelgesi giriş ve çıkışlardan hazırlanır; e-Şube'ye yüklenecek XML tek tıkla. Engelli personel dilekçesi.</p></div>
+    <div class="kart"><div class="ik"><svg viewBox="0 0 24 24"><path d="M8 3h8l4 4v14H8z"/><path d="M16 3v4h4M4 7v14h12"/></svg></div><h3>Sözleşme ve belgeler</h3><p>İkale, gizlilik, rekabet yasağı, fesih bildirimi, KKD zimmet ve daha fazlası personel bilgisiyle dolu gelir. Kendi şablonunuzu ekleyin.</p></div>
+    <div class="kart"><div class="ik"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.5h6V4M9 10h6M9 14h6M9 18h3"/></svg></div><h3>Tutanak ve savunma</h3><p>Disiplin, devamsızlık, iş kazası ve diğer tutanaklar; savunma talep yazısı, savunma formu ve süreç takibi.</p></div>
+    <div class="kart"><div class="ik"><svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><h3>Avans, icra, BES</h3><p>Taksitli avans, icra kesinti sırası ve müzekkere cevabı, OKS / BES aylık kesintisi ve sağlık sigortası indirimi.</p></div>
+  </div>
+</div></section>
+
+<section class="bolum" id="ekranlar" style="background: #fff"><div class="kap">
+  <h2>Programdan ekranlar</h2>
+  <p class="giris-metni">Görsellerdeki firma ve kişiler örnek verilerdir.</p>
+  <div class="tur"><div class="metin"><h3>İzin ve devamsızlık takvimden girilir</h3><ul><li>Mazeret izni, rapor, ücretsiz izin ve devamsızlık</li><li>Birden fazla personele toplu kayıt</li><li>İşbaşı tarihi önerilir, imzaya hazır form çıkar</li><li>Bordroda ücretli gün ve eksik gün olarak görünür</li></ul></div>
+    <img src="gorseller/izin-devamsizlik.jpg" alt="İzin ve devamsızlık ekranı: takvimden gün seçimi ve kayıt listesi" loading="lazy" width="1600" height="900"></div>
+  <div class="tur ters"><div class="metin"><h3>Çıkış hesabı saniyeler içinde</h3><ul><li>Kıdem başlangıcı ve tavan dönemi görünür</li><li>Net maaşlı çalışanlarda brütleştirme dahil</li><li>Personel izindeyse uyarı verir</li><li>Hesap dökümü, ibraname ve ödeme planı</li></ul></div>
+    <img src="gorseller/tazminat.jpg" alt="Tazminat hesabı: kıdem, ihbar ve izin ücreti" loading="lazy" width="1600" height="900"></div>
+  <div class="tur"><div class="metin"><h3>Yıllık izin hak edişleri kendiliğinden</h3><ul><li>Hak ediş çizelgesi ve kalan gün</li><li>Takvimden izin, yol izni</li><li>Geçmiş izinler Excel'den aktarılır</li></ul></div>
+    <img src="gorseller/yillik-izin.jpg" alt="Yıllık izin ekranı: hak ediş çizelgesi ve takvim" loading="lazy" width="1600" height="900"></div>
+  <div class="tur ters"><div class="metin"><h3>Bordroya işlenecekler tek listede</h3><ul><li>İzin, eksik gün, avans, icra ve BES kesintileri</li><li>Peşin izin ücreti mahsubu toplam kesintide</li><li>Excel ve PDF olarak alınır</li></ul></div>
+    <img src="gorseller/bordro.jpg" alt="Bordro hazırlık listesi" loading="lazy" width="1600" height="900"></div>
+  <div class="tur"><div class="metin"><h3>İŞKUR çizelgesi ve XML</h3><ul><li>Erkek / kadın ve sosyal duruma göre sayılar</li><li>SGK çıkış kodları ve meslek kodları dahil</li><li>e-Şube'ye yüklenecek dosya hazır</li></ul></div>
+    <img src="gorseller/iskur.jpg" alt="İŞKUR işgücü çizelgesi" loading="lazy" width="1600" height="900"></div>
+  <div class="tur ters"><div class="metin"><h3>Belgeler personel bilgisiyle dolu gelir</h3><ul><li>Hazır sözleşme, form ve zimmet şablonları</li><li>Word belgenizden şablon oluşturma</li><li>Yetkili imzası isteğe bağlı basılır</li></ul></div>
+    <img src="gorseller/belgeler.jpg" alt="Sözleşme ve belgeler ekranı" loading="lazy" width="1600" height="900"></div>
+</div></section>
+
+<section class="bolum gizlilik" id="gizlilik"><div class="kap">
+  <h2>Verileriniz yalnızca bilgisayarınızda</h2>
+  <p class="giris-metni">Rostera hiçbir personel verisini dışarı göndermez. Üyelik yok, sunucu yok, bulut yok.</p>
+  <div class="kartlar">
+    <div class="kart"><div class="ik"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>Şifreli veri dosyası</h3><p>Tüm kayıtlar bilgisayarınızda şifreli olarak saklanır; isterseniz açılış şifresi belirlersiniz.</p></div>
+    <div class="kart"><div class="ik"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3"/><path d="M17 6l3 3"/></svg></div><h3>Kurtarma anahtarı</h3><p>Şifrenizi unutursanız verileriniz kurtarma anahtarıyla açılır; kimseye veri göndermeden.</p></div>
+    <div class="kart"><div class="ik"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div><h3>Güncel parametreler</h3><p>Asgari ücret, tavanlar, vergi dilimleri ve resmi tatiller program içinden güncellenir.</p></div>
+  </div>
+</div></section>
+
+<section class="bolum" id="sss"><div class="kap" style="max-width: 860px">
+  <h2>Sık sorulanlar</h2>
+  <details><summary>Rostera gerçekten ücretsiz mi?</summary><p>Evet. Microsoft Store'dan ücretsiz indirilir; üyelik, abonelik veya reklam yoktur.</p></details>
+  <details><summary>Verilerim nerede saklanıyor?</summary><p>Yalnızca programı kurduğunuz bilgisayarda, şifreli bir dosyada. Program girdiğiniz hiçbir bilgiyi internete göndermez. Ayrıntılar için <a href="gizlilik.html">gizlilik politikası</a>.</p></details>
+  <details><summary>Bordro hesaplıyor mu?</summary><p>Rostera bordro programı değildir; o ay bordroya işlenecek izin, eksik gün ve kesintileri tek listede toplar. Bordroyu kendi bordro programınızda yaparsınız. Hızlı net / brüt hesabı ve tazminat hesapları ise programın içindedir.</p></details>
+  <details><summary>Bilgisayar değiştirirsem verilerim ne olur?</summary><p>Ayarlar › Yedekleme'den yedek alıp yeni bilgisayarda yedekten yükleyebilirsiniz. Şifre belirlediyseniz yedek, şifre ya da kurtarma anahtarıyla açılır.</p></details>
+  <details><summary>Hesaplara güvenebilir miyim?</summary><p>Hesaplar yürürlükteki mevzuata göre yapılır, ancak kişiye özel durumlar sonucu değiştirebilir. Ödeme ve resmi işlem öncesinde sonuçları bordro uzmanınıza veya mali müşavirinize kontrol ettirin.</p></details>
+  <details><summary>Soru ve önerilerimi nasıl iletebilirim?</summary><p>Programdaki “Soru / öneri gönder” bölümünden ya da <a href="mailto:odmirac@gmail.com">odmirac@gmail.com</a> adresinden.</p></details>
+</div></section>
+
+<section class="bolum cagri" style="background: #fff"><div class="kap">
+  <h2>Hemen deneyin</h2>
+  <p class="giris-metni" style="margin: 0 auto 28px">Kurulumdan sonra firma bilgilerinizi girip personelinizi Excel'den aktararak birkaç dakikada başlayabilirsiniz.</p>
+  <a class="dugme mavi" href="https://apps.microsoft.com/detail/9P63DGXNGJVF" rel="noopener">Microsoft Store'dan ücretsiz indir</a>
+  <p class="uyari">Rostera'daki hesaplar ve hazır belgeler bilgilendirme amaçlıdır. Programa girilen personel verileri bakımından KVKK kapsamında veri sorumlusu programı kullanan işverendir.</p>
+</div></section>
+
+<footer><div class="kap">
+  <span>© 2026 Miraç OD · Rostera</span>
+  <span><a href="gizlilik.html">Gizlilik politikası</a> · <a href="kullanim-kosullari.html">Kullanım koşulları</a> · <a href="mailto:odmirac@gmail.com">İletişim</a></span>
+</div></footer>
+</body>
+</html>
